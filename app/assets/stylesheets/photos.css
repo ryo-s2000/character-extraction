@@ -1,0 +1,19 @@
+.photos__header {
+    color: black;
+    border-bottom-style:solid;
+    background-color: rgba(255,255,255,1);
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.photos__wrapper {
+    padding: 10px;
+}
+
+.photos-text__wrapper {
+    padding: 10px;
+}
+
+.photos-alert__wrapper {
+    color: #a94442;
+    background-color: #f2dede;
+}

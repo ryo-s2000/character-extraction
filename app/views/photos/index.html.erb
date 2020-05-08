@@ -1,0 +1,38 @@
+<div>
+    <div class="photos__header">
+        <h2><a href="/" style="text-decoration:none; color:black;">画像文字抽出ツールβ</a></h1>
+    </div>
+
+    <div class="photos__wrapper">
+        <div class="photos-alert__wrapper">
+            <%= flash[:alert] %>
+        </div>
+
+        <div class="photos-text__wrapper">
+            画像から文字を抽出してくれます。<br>
+            教授がpdfで送ってきた文章を翻訳する課題も一瞬です、簡単にコピーペーストして翻訳にかけられます。<br>
+            通常pdfをコピーしようとすると文字化けしてしまう可能性がありますが、その心配がなくなります。<br>
+            中国語、フランス語、ドイツ語、スペイン語、etc...
+        </div>
+        <div class="photos-text__wrapper">
+            <h3>使い方</h3>
+            <ol>
+                <li>文字を抽出したいpdfなどの画像をsnippingtoolなどを使って撮ってください(pdf化されたままだと上手く動作しないため画像にする必要がある)</li>
+                <li>ファイルを選択して、submitを押してください</li>
+                <li>結果が出たらコピーしてgoogle翻訳などをしてください</li>
+            </ol>
+        </div>
+
+        <%= form_tag("/extraction", method: :post, multipart: true) do %>
+            <div class="field">
+                <p>ドキュメントを選択してください。</p>
+                <p>画像ファイルのみ対応しています(png jpg jpeg)</p>
+                <%= file_field_tag :file %><br>
+            </div>
+            <%= text_area_tag :text, @response , rows: 28, cols: 100 %><br>
+            <div class="actions">
+                <%= submit_tag 'Submit' %>
+            </div>
+        <% end %>
+    <div>
+</div>
